@@ -176,6 +176,36 @@ export default function App() {
     window.setTimeout(() => setShowTour(true), 80);
   }, []);
 
+  const handleTourStepChange = useCallback((step) => {
+    if (step.selector === '[data-tour="output"]') {
+      setActiveTab('analysis');
+      return;
+    }
+
+    if (
+      step.selector === '[data-tour="input-method"]'
+      || step.selector === '[data-tour="input-tab-csv"]'
+      || step.selector === '[data-tour="input-tab-voice"]'
+      || step.selector === '[data-tour="data-entry"]'
+      || step.selector === '[data-tour="input-mode-frequency"]'
+      || step.selector === '[data-tour="input-mode-grouped"]'
+      || step.selector === '[data-tour="percentile"]'
+      || step.selector === '[data-tour="analyze"]'
+    ) {
+      setActiveTab('input');
+    }
+
+    if (
+      step.selector === '[data-tour="data-entry"]'
+      || step.selector === '[data-tour="input-mode-frequency"]'
+      || step.selector === '[data-tour="input-mode-grouped"]'
+      || step.selector === '[data-tour="percentile"]'
+      || step.selector === '[data-tour="analyze"]'
+    ) {
+      setActiveInputPanel('manual');
+    }
+  }, []);
+
   const handleGuidelinesToggle = useCallback(() => {
     setShowTour(false);
     setActivePage((page) => (page === 'guidelines' ? 'calculator' : 'guidelines'));
@@ -531,7 +561,7 @@ export default function App() {
                 />
 
                 <aside className={`rounded-lg border-2 border-border bg-accent-primary text-white shadow-card transition-all duration-200 ${
-                  parameterPanelOpen ? 'p-0' : 'min-h-[390px] p-2'
+                  parameterPanelOpen ? 'p-0' : 'min-h-[220px] w-14 justify-self-end p-2 xl:min-h-[390px] xl:w-auto xl:justify-self-stretch'
                 }`}>
                   <div className={`flex gap-2 ${parameterPanelOpen ? 'flex-col p-4' : 'h-full flex-col items-center justify-center'}`}>
                     <button
@@ -627,7 +657,11 @@ export default function App() {
           <BottomTabs activeTab={activeTab} onTabChange={handleMobileTabChange} />
         </>
       )}
-      <OnboardingTour open={showTour && activePage === 'calculator'} onClose={() => setShowTour(false)} />
+      <OnboardingTour
+        open={showTour && activePage === 'calculator'}
+        onClose={() => setShowTour(false)}
+        onStepChange={handleTourStepChange}
+      />
     </div>
   );
 }

@@ -125,7 +125,24 @@ function getPopoverPosition(rect) {
   return { top: fallbackTop, left: centeredLeft, width: popoverWidth };
 }
 
-export default function OnboardingTour({ open, onClose }) {
+function isVisibleTarget(element) {
+  const rect = element.getBoundingClientRect();
+  const style = window.getComputedStyle(element);
+
+  return (
+    style.display !== 'none'
+    && style.visibility !== 'hidden'
+    && Number(style.opacity) !== 0
+    && rect.width > 0
+    && rect.height > 0
+  );
+}
+
+function findVisibleTarget(selector) {
+  return Array.from(document.querySelectorAll(selector)).find(isVisibleTarget) || null;
+}
+
+export default function OnboardingTour({ open, onClose, onStepChange }) {
   const [stepIndex, setStepIndex] = useState(0);
   const [targetRect, setTargetRect] = useState(null);
   const steps = useMemo(() => TOUR_STEPS, []);
@@ -139,8 +156,18 @@ export default function OnboardingTour({ open, onClose }) {
   useEffect(() => {
     if (!open || !step) return undefined;
 
+    onStepChange?.(step);
+    const skipIfTargetMissing = () => {
+      if (findVisibleTarget(step.selector) || steps.length < 2) return;
+
+      setStepIndex((current) => {
+        if (current < steps.length - 1) return current + 1;
+        return Math.max(current - 1, 0);
+      });
+    };
+
     const syncTargetRect = () => {
-      const target = document.querySelector(step.selector);
+      const target = findVisibleTarget(step.selector);
       if (!target) {
         setTargetRect(null);
         return;
@@ -150,25 +177,29 @@ export default function OnboardingTour({ open, onClose }) {
     };
 
     const moveToTarget = () => {
-      const target = document.querySelector(step.selector);
+      const target = findVisibleTarget(step.selector);
       if (!target) {
         setTargetRect(null);
         return;
       }
 
-      target.scrollIntoView({ block: 'center', inline: 'center', behavior: 'smooth' });
-      window.setTimeout(syncTargetRect, 180);
+      target.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'smooth' });
+      window.requestAnimationFrame(syncTargetRect);
+      window.setTimeout(syncTargetRect, 220);
+      window.setTimeout(syncTargetRect, 420);
     };
 
-    moveToTarget();
+    window.requestAnimationFrame(moveToTarget);
+    const skipTimer = window.setTimeout(skipIfTargetMissing, 260);
     window.addEventListener('resize', syncTargetRect);
     window.addEventListener('scroll', syncTargetRect, true);
 
     return () => {
+      window.clearTimeout(skipTimer);
       window.removeEventListener('resize', syncTargetRect);
       window.removeEventListener('scroll', syncTargetRect, true);
     };
-  }, [open, step]);
+  }, [onStepChange, open, step, steps.length]);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -194,10 +225,11 @@ export default function OnboardingTour({ open, onClose }) {
     right: window.innerWidth - 24,
   };
   const rect = targetRect || fallbackRect;
+  const highlightLeft = Math.max(8, rect.left - 8);
   const highlightStyle = {
     top: Math.max(8, rect.top - 8),
-    left: Math.max(8, rect.left - 8),
-    width: Math.min(window.innerWidth - 16, rect.width + 16),
+    left: highlightLeft,
+    width: Math.min(window.innerWidth - highlightLeft - 8, rect.width + 16),
     height: rect.height + 16,
     backdropFilter: 'brightness(1.45) saturate(1.18)',
     WebkitBackdropFilter: 'brightness(1.45) saturate(1.18)',
