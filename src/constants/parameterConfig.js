@@ -1,0 +1,16 @@
+export const PARAMETER_ITEMS = [
+  { key: 'mean', label: 'Mean', formulaKey: 'mean' },
+  { key: 'median', label: 'Median', formulaKey: 'median' },
+  { key: 'mode', label: 'Modus', formulaKey: 'mode' },
+  { key: 'q1', label: 'Q1', formulaKey: 'quartile' },
+  { key: 'q2', label: 'Q2', formulaKey: 'quartile' },
+  { key: 'q3', label: 'Q3', formulaKey: 'quartile' },
+  { key: 'pk', label: 'Pk', formulaKey: 'percentile' },
+  { key: 'range', label: 'Range', formulaKey: 'range' },
+  { key: 'variance', label: 'Varian (s2)', formulaKey: 'variance' },
+  { key: 'stdDev', label: 'StdDev (s)', formulaKey: 'stdDev' },
+  { key: 'min', label: 'Min' },
+  { key: 'max', label: 'Max' },
+  { key: 'n', label: 'N' },
+  { key: 'outliers', label: 'Outlier', formulaKey: 'outlier' },
+];

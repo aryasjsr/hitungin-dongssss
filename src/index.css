@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=Libre+Caslon+Text:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Color tokens */
+  --color-bg-base: #fbf9f4;
+  --color-bg-surface: #ffffff;
+  --color-bg-elevated: #f0eee9;
+  --color-bg-overlay: #e4e2dd;
+  --color-border: #000000;
+  --color-border-subtle: #747871;
+
+  --color-accent-primary: #061907;
+  --color-accent-secondary: #3f6652;
+  --color-accent-soft: #c1edd2;
+  --color-accent-glow: #000000;
+  --color-gradient-hero: #061907;
+
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ba1a1a;
+  --color-info: #3f6652;
+
+  --color-text-primary: #061907;
+  --color-text-secondary: #434841;
+  --color-text-muted: #747871;
+  --color-text-inverse: #ffffff;
+
+  /* Chart tokens */
+  --chart-bar: #3f6652;
+  --chart-mean: #ba1a1a;
+  --chart-median: #061907;
+  --chart-grid: rgba(0, 0, 0, 0.18);
+  --chart-axis: #061907;
+  --chart-tooltip-bg: #1a2e1a;
+
+  /* Font tokens */
+  --font-display: 'Libre Caslon Text', Georgia, serif;
+  --font-body: 'Archivo Narrow', 'Arial Narrow', system-ui, sans-serif;
+  --font-mono: 'Archivo Narrow', 'JetBrains Mono', monospace;
+
+  /* Type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-4xl: 2.25rem;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar,
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track,
+::-webkit-scrollbar-track {
+  background: var(--color-bg-elevated);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-secondary);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Focus ring utility */
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 4px 4px 0 0 #8ab49c;
+}
+
+/* Tabular nums for statistics */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Selection */
+::selection {
+  background: #c1edd2;
+  color: var(--color-text-primary);
+}
+
+/* UI/UX Upgrades from Design Folder */
+.accent-glow {
+  box-shadow: 4px 4px 0 0 #000000;
+}
+
+.brand-gradient {
+  background: var(--color-gradient-hero);
+}
+
+.hover-glow:hover {
+  box-shadow: 6px 6px 0 0 #000000;
+  border-color: #000000;
+  transform: translate(-1px, -1px);
+}
+
+.neo-border {
+  border: 2px solid #000000;
+}
+
+.border.border-border {
+  border-width: 2px;
+}
+
+.border-t.border-border,
+.border-b.border-border,
+.border-l.border-border,
+.border-r.border-border {
+  border-width: 2px;
+}
+
+.neo-shadow {
+  box-shadow: 4px 4px 0 0 #000000;
+}
+
+.neo-shadow-lg {
+  box-shadow: 8px 8px 0 0 #000000;
+}
+
+.interactive-press:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 0 #000000;
+}
+
+input[type='checkbox'] {
+  accent-color: #061907;
+}
