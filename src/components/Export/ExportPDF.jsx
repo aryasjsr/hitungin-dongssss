@@ -246,7 +246,7 @@ export default function ExportPDF({ results, chartType = 'bar' }) {
 
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(17);
-      y = addLine(doc, 'HitunginLab Report', 14, y);
+      y = addLine(doc, 'HitunginDong Report', 14, y);
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(10);
       y = addLine(doc, `Tanggal export: ${new Date().toLocaleString('id-ID')}`, 14, y);
@@ -301,7 +301,7 @@ export default function ExportPDF({ results, chartType = 'bar' }) {
       y = addLine(doc, 'Tabel Data', 14, y);
       drawReportTable(doc, results, y);
 
-      doc.save(`HitunginLab-report-${new Date().toISOString().slice(0, 10)}.pdf`);
+      doc.save(`HitunginDong-report-${new Date().toISOString().slice(0, 10)}.pdf`);
       toast.success('PDF report berhasil diunduh!');
     } catch (err) {
       toast.error('Gagal mengekspor PDF.');

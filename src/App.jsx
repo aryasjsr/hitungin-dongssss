@@ -31,7 +31,7 @@ import { BarChart3, ChevronDown, RefreshCw } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 const DEFAULT_VISIBLE_PARAMETERS = ['mean', 'median', 'q1', 'q2', 'q3', 'pk', 'variance', 'standar Deviation', 'n'];
-const TOUR_SEEN_KEY = 'hitunginlab-tour-seen';
+const TOUR_SEEN_KEY = 'hitungindong-tour-seen';
 const INPUT_TABS = [
   { key: 'manual', label: 'Manual' },
   { key: 'csv', label: 'CSV' },
@@ -488,7 +488,7 @@ export default function App() {
   // --- Output Panel ---
   const outputPanel = (
     <section
-      className="min-h-[520px] w-full overflow-hidden rounded-lg border-2 border-border bg-bg-surface p-5 shadow-card transition-all duration-200 hover-glow xl:p-6"
+      className="min-h-[520px] w-full overflow-hidden rounded-lg border-2 border-border bg-bg-surface p-5 shadow-card transition-all duration-200 hover-glow lg:h-full xl:p-6"
       style={{ maxWidth: 'calc(100vw - 32px)' }}
       data-tour="output"
     >

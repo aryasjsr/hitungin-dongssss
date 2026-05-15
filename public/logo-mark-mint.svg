@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" width="68" height="68">
+  
+  
+  
+  <rect x="4" y="4" width="64" height="64" rx="14" fill="#000"></rect>
+  
+  <rect x="0" y="0" width="64" height="64" rx="14" fill="#c1edd2" stroke="#000" stroke-width="2"></rect>
+  
+  <text x="32" y="46.72" text-anchor="middle" font-family="&#39;Libre Caslon Text&#39;, Georgia, serif" font-style="italic" font-weight="700" font-size="41.6" fill="#061907">x</text>
+  
+  <rect x="18.560000000000002" y="5.76" width="26.88" height="3.84" rx="1.92" fill="#061907"></rect>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 92" width="380" height="92">
+  
+  <rect x="4" y="4" width="376" height="88" rx="14" fill="#000"></rect>
+  <rect x="0" y="0" width="376" height="88" rx="14" fill="#061907" stroke="#000" stroke-width="2"></rect>
+  
+  
+  <rect x="17" y="17" width="60" height="60" rx="13" fill="#000"></rect>
+  
+  <rect x="14" y="14" width="60" height="60" rx="13" fill="#061907" stroke="#000" stroke-width="2"></rect>
+  
+  <text x="44" y="57.8" text-anchor="middle" font-family="&#39;Libre Caslon Text&#39;, Georgia, serif" font-style="italic" font-weight="700" font-size="39" fill="#c1edd2">x</text>
+  
+  <rect x="31.4" y="19.4" width="25.2" height="3.5999999999999996" rx="1.7999999999999998" fill="#c1edd2"></rect>
+  
+  <rect x="14" y="14" width="60" height="60" rx="13" fill="none" stroke="#c1edd2" stroke-width="1.5"></rect>
+  <text x="90" y="52" font-family="&#39;Libre Caslon Text&#39;, Georgia, serif" font-weight="700" font-size="28" fill="#ffffff">HitunginDong</text>
+  <text x="90" y="71" font-family="&#39;Archivo Narrow&#39;, &#39;Arial Narrow&#39;, Arial, sans-serif" font-weight="700" font-size="10" letter-spacing="1.2" fill="#c1edd2">KALKULATOR STATISTIKA · x̄</text>
+</svg>

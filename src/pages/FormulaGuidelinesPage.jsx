@@ -48,7 +48,7 @@ export default function FormulaGuidelinesPage({ onBack }) {
             <div>
               <h2 className="text-4xl font-bold leading-tight text-text-primary">Guidelines Rumus</h2>
               <p className="mt-1 max-w-2xl text-base leading-relaxed text-text-secondary">
-                Ringkasan rumus yang dipakai HitunginLab untuk data tunggal, data berfrekuensi, dan data kelompok.
+                Ringkasan rumus yang dipakai HitunginDong untuk data tunggal, data berfrekuensi, dan data kelompok.
               </p>
             </div>
           </div>

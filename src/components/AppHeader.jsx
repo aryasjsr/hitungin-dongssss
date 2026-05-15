@@ -4,13 +4,15 @@ export default function AppHeader({ onSave, onLoad, onStartTour, onOpenGuideline
   return (
     <header className="sticky top-0 z-50 flex min-h-20 items-center justify-between gap-3 border-b-2 border-border bg-bg-base px-4 py-3 shadow-card lg:px-8" data-tour="brand">
       <div className="flex min-w-0 items-center gap-4">
-        <div>
-          <h1 className="text-[28px] font-bold leading-tight text-text-primary lg:text-[34px]">HitunginDong</h1>
-          <p className="text-xs font-bold uppercase text-text-muted">Kalkulator Statistika Tendensi Pusat Untukmu</p>
-        </div>
+        <img
+          src="/logo-lockup-mint.svg"
+          alt="HitunginDong"
+          className="h-auto w-[180px] max-w-full shrink sm:w-[220px] lg:w-[260px]"
+        />
+        <h1 className="sr-only">HitunginDong</h1>
       </div>
 
-      <div className="grid shrink-0 grid-cols-2 gap-1.5 sm:flex sm:items-center sm:gap-3">
+      <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
         <button
           onClick={onStartTour}
           className="focus-ring interactive-press flex h-8 w-8 items-center justify-center rounded-full border-2 border-border bg-bg-surface text-sm font-bold text-text-primary shadow-card transition-transform duration-150 hover:bg-accent-soft sm:h-auto sm:w-auto sm:gap-2 sm:px-4 sm:py-2"

@@ -75,7 +75,7 @@ export default function ExportExcel({ results, chartType = 'bar' }) {
         ...markers,
       ]), 'ChartsInfo');
 
-      XLSX.writeFile(wb, 'HitunginLab-export.xlsx');
+      XLSX.writeFile(wb, 'HitunginDong-export.xlsx');
       toast.success('File Excel berhasil diunduh!');
     } catch (err) {
       toast.error('Gagal mengekspor Excel.');

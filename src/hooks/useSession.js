@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
-const DRAFT_KEY = 'hitunginlab-draft';
+const DRAFT_KEY = 'hitungindong-draft';
 const SESSION_VERSION = '1.0';
 
 /**
@@ -87,7 +87,7 @@ export function useSession({
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'HitunginLab-session.json';
+    a.download = 'HitunginDong-session.json';
     a.click();
     URL.revokeObjectURL(url);
     toast.success('Session berhasil disimpan!');
